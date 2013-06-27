@@ -243,6 +243,8 @@ extern NSString *const NSURLIsExcludedFromBackupKey __attribute__((weak_import))
     return [self normalizedPathForFile:fileOrPath ofType:@"png"];
 }
 
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wshadow"
 - (NSString *)normalizedPathForFile:(NSString *)fileOrPath ofType:(NSString *)extension
 {
     @synchronized ([NSFileManager class])
@@ -399,6 +401,7 @@ extern NSString *const NSURLIsExcludedFromBackupKey __attribute__((weak_import))
         return _path;
     }
 }
+#pragma clang diagnostic pop
 
 @end
 
